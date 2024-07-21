@@ -8,7 +8,7 @@ public class SomaMedia {
     public static void main(String[] args) {
         float n1, n2, n3, md, soma;
         Scanner teclado = new Scanner(System.in);
-        System.out.println(" informe sua primeira nota");
+        System.out.println(" informe sua primeira nota ");
         n1 = teclado.nextFloat();
         
         System.out.println(" informe sua segunda nota ");
