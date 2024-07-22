@@ -1,3 +1,6 @@
+/*Escreva um programa que receba uma temperatura em graus centígrados e a apresente
+em graus Fahrenheit.*/
+
 package grauscentigrados;
 import java.util.Scanner;
 public class GrausCentigrados {
