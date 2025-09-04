@@ -3,24 +3,21 @@ Dezena e Unidade) e, utilizando operadores aritméticos, armazene cada dígito e
 variável de tipo inteiro. Por fim, reescreva o número no formato UCD. Exemplo: 123 deve
 ser reescrito como 312.*/
 
-package grauscentigrados;
 import java.util.Scanner;
-public class GrausCentigrados {
+public class Cdu{
+    public static void main (String[] args){
+        int u, d,c, cdu, udc;
+        Scanner teclado = new Scanner(System.in);
 
-         public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite um numero de tres digitos, no formato (CDU)");
+        cdu = teclado.nextInt();
 
-        System.out.print("Digite um número de 3 dígitos (CDU): ");
-        int numeroCDU = scanner.nextInt();
+        c = cdu/100;
+        d = (cdu /10)%10;
+        u = cdu %10;
 
-        int centena = numeroCDU / 100;
-        int dezena = (numeroCDU / 10) % 10;
-        int unidade = numeroCDU % 10;
+        udc = u * 100 + c * 10 + d;
 
-        int numeroUCD = unidade * 100 + centena * 10 + dezena;
-        
-        System.out.println("Número reescrito no formato UCD: " + numeroUCD);
-
-        scanner.close();
+        System.out.println("o numero em forma que voce digitou foi "+ cdu + "\n no formato de udc fica " + udc);
     }
 }
