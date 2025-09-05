@@ -12,43 +12,49 @@ o usuário forneça um código diferente de 111 ou 222, exiba a mensagem Setor I
 import java.util.Scanner;
 
 public class PromocaoRelampago {
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int cod;
+        double valor, valorD;
 
-        System.out.print("Informe o código do setor (111 para Cama, Mesa e Banho ou 222 para Eletros): ");
-        int codigoSetor = scanner.nextInt();
+        Scanner teclado = new Scanner(System.in);
 
-        
-        System.out.print("Informe o valor do produto: R$ ");
-        double valorProduto = scanner.nextDouble();
+        System.out.println("Informe o codigo do setor");
+        cod = teclado.nextInt();
 
-        double valorComDesconto = valorProduto;
+        System.out.println("Qual o valor da peça?");
+        valor = teclado.nextDouble();
 
-       
-        if (codigoSetor == 222) {
-            
-            if (valorProduto > 500) {
-                valorComDesconto = valorProduto * 0.90; // 10% de desconto
-            }
-            System.out.printf("Setor: Eletros\nValor com desconto: R$ %.2f%n", valorComDesconto);
+        if(cod == 111){
+            System.out.println("Setor de cama, mesa e banho");
+            System.out.println("Valor da peça: " + valor);
 
-        } else if (codigoSetor == 111) {
-           
-            if (valorProduto > 100) {
-                valorComDesconto = valorProduto * 0.60; // 40% de desconto
-            } else if (valorProduto >= 50) {
-                valorComDesconto = valorProduto * 0.80; // 20% de desconto
+            if (valor > 100 ) {
+                valorD = valor * 0.60; 
+                System.out.println("Valor com desconto: " + valorD);
+            } else if(valor >= 50 && valor <= 100){
+                valorD = valor * 0.80;
+                System.out.println("Valor com desconto: " + valorD);
             } else {
-                valorComDesconto = valorProduto * 0.90; // 10% de desconto
+                valorD = valor * 0.90;
+                System.out.println("Valor com desconto: " + valorD);
             }
-            System.out.printf("Setor: Cama, Mesa e Banho\nValor com desconto: R$ %.2f%n", valorComDesconto);
-
-        } else {
-            
-            System.out.println("Setor Inválido");
         }
 
-        scanner.close();
+        if(cod == 222){
+            System.out.println("Setor de Eletrons");
+            System.out.println("Valor da peça: " + valor);
+            if(valor > 500){
+                valorD = valor * 0.90;
+                System.out.println("Valor com desconto: " + valorD);
+            } else {
+                System.out.println("Sem desconto");
+            }
+        }
+
+        if(cod != 111 && cod != 222){
+            System.out.println("Valor inválido");
+        }
+
+        teclado.close();
     }
 }
