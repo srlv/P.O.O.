@@ -1,15 +1,18 @@
-   public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Digite o intervalo em minutos: ");
-        int minutos = scanner.nextInt();
+import java.util.Scanner;
 
-        int dias = minutos / 1440;  
-        int horas = (minutos % 1440) / 60;  
-        int minutosRestantes = minutos % 60;  
-      
-        System.out.println(minutos + " minutos = " + dias + " dias, " + horas + " horas e " + minutosRestantes + " minutos");
+public class Minutos {
+    public static void main(String[] args) {
+      int v, m, d, h;
+        Scanner teclado = new Scanner(System.in);
+      System.out.println("infome a quantidade de minutos ");
+      v = teclado.nextInt();
 
-        scanner.close();
+      d = (v/60) / 24;
+      h = (v/60) %24;
+      m = v%60;
+
+      System.out.println(d +  " dias " +  h  + " horas " + " e " + m +  " minutos " );
+
+      teclado.close();
     }
 }
