@@ -2,70 +2,63 @@
 treze (rei), e outro número correspondente ao naipe (1 = ouros, 2 = paus, 3 = copas e 4 =
 espadas). O programa deve imprimir o nome da carta por extenso.*/
 
-import java.util.Scanner;
-
-public class NomeDaCarta {
-
+public class Cartas {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        int n, valorC = 0, numNaipe;
+        String nomeNaipe = "";
+        String naipeSpecial = ""; 
+        Scanner teclado = new Scanner(System.in);
 
-       
-        System.out.print("Informe o valor da carta (1 para Ás até 13 para Rei): ");
-        int valorCarta = scanner.nextInt();
+        System.out.println("DIGITE O NUMERO DA CARTA");
+        n = teclado.nextInt();
 
-        System.out.print("Informe o naipe da carta (1 = Ouros, 2 = Paus, 3 = Copas, 4 = Espadas): ");
-        int naipe = scanner.nextInt();
+        System.out.println("DIGITE O NUMERO DO NAIPE");
+        numNaipe = teclado.nextInt();
 
-        String nomeCarta;
-        String nomeNaipe;
+        switch(n){
+            case 2: case 3: case 4: case 8:
+            case 5: case 6: case 7: case 9: case 10:
 
-        switch (valorCarta) {
+            valorC = n;
+
+            break;
             case 1:
-                nomeCarta = "Ás";
-                break;
+            naipeSpecial = "ÁS";
+            break;
+
             case 11:
-                nomeCarta = "Valete";
-                break;
+            naipeSpecial = "Valete";
+            break;
             case 12:
-                nomeCarta = "Dama";
-                break;
+            naipeSpecial = " Dama";
+            break;
             case 13:
-                nomeCarta = "Rei";
-                break;
-            default:
-    
-                if (valorCarta >= 2 && valorCarta <= 10) {
-                    nomeCarta = String.valueOf(valorCarta);
-                } else {
-                    System.out.println("Valor da carta inválido.");
-                    scanner.close();
-                    return;
-                }
-                break;
+            naipeSpecial = " Rei";
+            break;  
         }
 
-      
-        switch (naipe) {
+        switch(numNaipe){
             case 1:
-                nomeNaipe = "Ouros";
-                break;
+
+            nomeNaipe = "OUROS";
+            break;
             case 2:
-                nomeNaipe = "Paus";
-                break;
-            case 3:
-                nomeNaipe = "Copas";
-                break;
+
+            nomeNaipe = "PAUS";
+            break;
+
+            case 3: 
+            nomeNaipe = "COPAS";
+            break;
+
             case 4:
-                nomeNaipe = "Espadas";
-                break;
-            default:
-                System.out.println("Naipe inválido.");
-                scanner.close();
-                return;
+            nomeNaipe = "ESPADAS";
         }
-
-        System.out.println("A carta é: " + nomeCarta + " de " + nomeNaipe);
-
-        scanner.close();
+        if(n>1 && n<11){
+        System.out.println(" voce escolheu o " + valorC + "de" + nomeNaipe );
+    }else if(n == 1 || n == 11 || n == 12 || n == 13){
+        System.out.println(naipeSpecial + "de" + nomeNaipe);
     }
+    teclado.close();
+}
 }
